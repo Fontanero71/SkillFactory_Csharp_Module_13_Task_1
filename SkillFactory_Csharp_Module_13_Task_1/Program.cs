@@ -23,31 +23,32 @@ namespace SkillFactory_Csharp_Module_13_Task_1
             // разбиваем нашу строку текста, используя ранее перечисленные символы-разделители
             var words = text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
 
-            Stopwatch stopWatch = new Stopwatch(); // Измеряем время добавления в список List
-            stopWatch.Start();
+            Stopwatch stopWatch1 = new Stopwatch();
+
+            stopWatch1.Start();                    // Измеряем время добавления в связанный список LinkedList
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                linkedList.AddLast(words[i]);
+            }
+
+            stopWatch1.Stop();
+
+            Console.WriteLine($"Время добавления текста в связанный список: {stopWatch1.Elapsed.TotalMilliseconds} мс");
+
+
+            Stopwatch stopWatch2 = new Stopwatch();
+            stopWatch2.Start();                    // Измеряем время добавления в список List
 
             for (int i = 0; i < words.Length; i++)
             {
                 usualList.Add (words[i]);
             }
 
-            stopWatch.Stop();
+            stopWatch2.Stop();
 
-            Console.WriteLine($"Время добавления текста в список: {stopWatch.Elapsed.TotalMilliseconds} мс");
+            Console.WriteLine($"Время добавления текста в список: {stopWatch2.Elapsed.TotalMilliseconds} мс");
             
-            
-
-            stopWatch.Start();                    // Измеряем время добавления в список List
-
-            for (int i = 0; i < words.Length; i ++)
-            {
-                linkedList.AddLast (words[i]);
-            }
-
-            stopWatch.Stop();
-
-            Console.WriteLine($"Время добавления текста в связанный список: {stopWatch.Elapsed.TotalMilliseconds} мс"); ;
-
             
         }
     }
